@@ -1,0 +1,44 @@
+@mixin greenGradient {
+    background-color: #7ee8fa;
+    background-image: linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
+}
+
+@mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+body {
+    @include greenGradient();
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+        color: #fff;
+}
+
+.main {
+    position: absolute;
+    top: 25vh;
+    margin: 0 auto;
+    height: 21vh;
+    width: 33vw;
+    padding: 1rem;
+    border-top: solid red 45px;
+
+    .form-inputs-group {
+        @include flexColumn();
+    }
+    span {
+        margin: 10px 0;
+        font-size: 25px;
+        text-align: end;
+    }
+
+    .result {
+        text-align: end;
+    }
+    .input-item {
+        margin: 10px 0 20px 0;
+    }
+}
