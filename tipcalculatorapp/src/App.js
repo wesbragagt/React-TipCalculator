@@ -5,7 +5,7 @@ export class App extends Component {
         return (
             <div>
                 <h1>Welcome to tip calculator</h1>
-                <Button>Testing</Button>
+                <Button variant="contained" color="primary">Testing</Button>
             </div>
         );
     }
