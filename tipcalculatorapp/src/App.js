@@ -2,34 +2,49 @@ import React, { Component } from "react";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 // SASS
 import "./app.scss";
 
 export class App extends Component {
     state = {
-        bill: "",
-        tip: "",
-        result: ""
+        bill: 0,
+        tip: 0,
+        result: 0
     };
+
+    componentWillUnmount() {
+        this.clearCalc();
+    }
 
     handleInputChange = input => {
         this.setState({
-            bill: input
+            bill: +input
         });
     };
 
-    handleTipChange = (input, next) => {
-        this.setState({
-            tip: input
-        });
-        next();
+    handleTipChange = input => {
+        this.setState(
+            {
+                tip: +input
+            },
+            this.calculateResult
+        );
     };
 
     calculateResult = () => {
         const { bill, tip } = this.state;
-        let result = parseFloat(bill) * parseFloat(tip);
+        let result = bill * tip;
         this.setState({
-            result: 
+            result: +result
+        });
+    };
+
+    clearCalc = () => {
+        this.setState({
+            bill: 0,
+            tip: 0,
+            result: 0
         });
     };
 
@@ -53,8 +68,7 @@ export class App extends Component {
                                 value={this.state.tip}
                                 onChange={e =>
                                     this.handleTipChange(
-                                        e.target.value,
-                                        this.calculateResult
+                                        e.target.value
                                     )
                                 }
                             />
