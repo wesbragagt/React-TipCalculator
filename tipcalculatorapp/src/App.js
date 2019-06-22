@@ -36,7 +36,7 @@ export class App extends Component {
         const { bill, tip } = this.state;
         let result = bill * (tip * 0.01);
         result.toFixed(2);
-        result = "$" + result;
+        result = "You should tip $" + result;
         this.setState({
             result: result
         });
@@ -55,6 +55,7 @@ export class App extends Component {
             <div>
                 <Container maxWidth="sm">
                     <Paper className="main">
+                        <header className="head-title">Tip Calculator just type the amount and percentage</header>
                         <form className="form-inputs-group">
                             <TextField
                                 type="number"

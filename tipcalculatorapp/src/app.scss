@@ -17,11 +17,15 @@ body {
         color: #fff;
 }
 
+.head-title {
+    margin-bottom: 20px;
+}
+
 .main {
     position: absolute;
     top: 25vh;
     margin: 0 auto;
-    height: 21vh;
+    height: 25vh;
     width: 33vw;
     padding: 1rem;
     border-top: solid red 45px;
