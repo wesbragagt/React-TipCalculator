@@ -8,8 +8,8 @@ import "./app.scss";
 
 export class App extends Component {
     state = {
-        bill: 0,
-        tip: 0,
+        bill: Number,
+        tip: Number,
         result: 0
     };
 
@@ -34,9 +34,11 @@ export class App extends Component {
 
     calculateResult = () => {
         const { bill, tip } = this.state;
-        let result = bill * tip;
+        let result = bill * (tip * 0.01);
+        result.toFixed(2);
+        result = "$" + result;
         this.setState({
-            result: +result
+            result: result
         });
     };
 
@@ -55,6 +57,8 @@ export class App extends Component {
                     <Paper className="main">
                         <form className="form-inputs-group">
                             <TextField
+                                type="number"
+                                
                                 className="input-item"
                                 placeholder="Insert Bill ex: 12.45"
                                 value={this.state.bill}
@@ -63,13 +67,13 @@ export class App extends Component {
                                 }
                             />
                             <TextField
+                                type="number"
+                                
                                 className="input-item"
                                 placeholder="Insert tip percentage ex: 15%"
                                 value={this.state.tip}
                                 onChange={e =>
-                                    this.handleTipChange(
-                                        e.target.value
-                                    )
+                                    this.handleTipChange(e.target.value)
                                 }
                             />
 
